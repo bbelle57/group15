@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Pages</title>
+	<link rel="stylesheet" type="text/css" href="css/contact.css" />	
+	
+</head>
+
+<body>
+                  <div class="bg-img">
+					<div class="container">
+			  
+			</div></div>
+			
+					<div class="topnav">
+               <a href="front.html">Home</a>
+               <a href="about.html">About Loay</a>
+               <a href="services.html">Loay Tourism</a>
+			   <a href="residents.html">Residents of Loay</a>
+               <a href="events.html">News and Events</a>
+			   <a href="contact.html">Contacts</a>
+
+</div>
+
+<center>
+<br><br></br></br>
+	<div class ="kontiner1">
+            <div class="bex">
+				<div class="imgbex">
+					<img src="images/contact.jpg">
+				</div>
+				</div>
+				</div>	
+				</center>
+				  
+<div>
+<br></br><br></br>
+			<div class ="container">	
+		 <div class="bex">
+				<div class="imgbex">
+			<img src="images/mer.jpg">
+				</div>
+				</div>	
+			
+<form method="post" name="contact"
+action="contact.html">
+    Your Name:
+    <input type="text" name="name">
+
+    Email Address:
+    <input type="text" name="email">
+
+    Message:
+    <textarea name="message"></textarea>
+
+    <input type="submit" value="Submit">
+</form>	
+	
+	<script language="JavaScript">
+var frmvalidator  = new Validator("contactform");
+frmvalidator.addValidation("name","req","Please provide your name");
+frmvalidator.addValidation("email","req","Please provide your email");
+frmvalidator.addValidation("email","email",
+  "Please enter a valid email address");
+</script>
+
+<?php
+$errors = '';
+$myemail = 'yourname@website.com';//<-----Put Your email address here.
+if(empty($_POST['name'])  || 
+   empty($_POST['email']) || 
+   empty($_POST['message']))
+{
+    $errors .= "\n Error: all fields are required";
+}
+
+$name = $_POST['name']; 
+$email_address = $_POST['email']; 
+$message = $_POST['message']; 
+
+if (!preg_match(
+"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
+$email_address))
+{
+    $errors .= "\n Error: Invalid email address";
+}
+
+if( empty($errors))
+
+{
+
+$to = $myemail;
+
+$email_subject = "Contact form submission: $name";
+
+$email_body = "You have received a new message. ".
+
+" Here are the details:\n Name: $name \n ".
+
+"Email: $email_address\n Message \n $message";
+
+$headers = "From: $myemail\n";
+
+$headers .= "Reply-To: $email_address";
+
+mail($to,$email_subject,$email_body,$headers);
+
+//redirect to the 'thank you' page
+
+header('Location: contact.html');
+
+}
+?>
+</div>
+
+<style>
+form{
+width: 500px;
+}
+
+img{ 
+width: 500px;
+}
+
+</style>
+
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>	
+ <div>
+ <style media="screen">
+    </style>
+ 
+ 
+        <h1 style="color:black;">
+            Our Location </h1>
+
+  <!-- Google Map Copied Code -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62939.148883145775!2d123.98360896718413!3d9.62135311178579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa452f1bcc47c9%3A0xbf495eb26559751b!2sLoay%2C%20Bohol!5e0!3m2!1sen!2sph!4v1624165403596!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+
+		<center>
+<br></br>
+<div>
+<body style="background-color:#728FCE;">
+</body>
+
+<h3> For more suggestions and clarifications : Please contact us ! </h3>
+				<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+				<!-- Add font awesome icons -->
+				<a href="https://www.facebook.com/oneloay/" class="fa fa-facebook"></a>
+				<span>@oneloay</span>
+				<a href="" class="fa fa-mobile"></a>
+				<span>09230894274</span>
+				<a href="" class="fa fa-phone"></a>
+				<span>(0938) 422-0403</span>
+			</div>
+
+			
+			<br></br>
+			<script>function display_ct6() {
+		var x = new Date()
+		var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+		hours = x.getHours( ) % 12;
+		hours = hours ? hours : 12;
+		var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+		x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
+		document.getElementById('ct6').innerHTML = x1;
+		display_c6();
+	}
+	function display_c6(){
+	var refresh=1000; // Refresh rate in milli seconds
+	mytime=setTimeout('display_ct6()',refresh)
+}
+		display_c6()
+		</script>
+		<span id='ct6' style="background-color: #ADD8E6"></span>
+	</center>	
+		
+</body>
+</html>
